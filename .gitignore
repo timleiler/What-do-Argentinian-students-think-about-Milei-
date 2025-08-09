@@ -19,8 +19,8 @@
 *.pyc
 
 # IDEs (Contains user-specific data, can lead to problems in project work)
-.vscode/
-.idea/
+*.vscode/
+*.idea/
 
 # Excel files (to keep them anonymous)
-.xlsx
+*.xlsx
