@@ -1,0 +1,26 @@
+#Ignores the test folder:
+*tests/
+
+#Configuration files with secrets: 
+#Ignored API Keys (.env files contain API keys that need to remain secure and private)
+*.env
+*.env.local
+.env.*
+#Ignored .log files (They provide information on the Operating System’s usage activities and errors, as well as a history of events that have taken place within the OS.)
+*.log
+*.log
+*npm-debug.log*
+*yarn-debug.log*
+*yarn-error.log*
+# System files
+.DS_Store
+# Python (Temporary files only)
+'__pycache__/
+*.pyc
+
+# IDEs (Contains user-specific data, can lead to problems in project work)
+.vscode/
+.idea/
+
+# Excel files (to keep them anonymous)
+.xlsx
