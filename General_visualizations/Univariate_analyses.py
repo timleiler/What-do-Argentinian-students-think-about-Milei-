@@ -13,3 +13,13 @@ import openpyxl
 df = pd.read_excel("Auswertung.xlsx")
 
 print(df.head())
+
+
+
+#Descriptive Statistic
+print("------Descriptive Statistic-------")
+
+numerical_vars =
+
+
+categorical_vars =
