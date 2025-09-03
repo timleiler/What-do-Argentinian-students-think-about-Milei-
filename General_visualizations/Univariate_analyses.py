@@ -74,4 +74,27 @@ axes[0, 2].set_ylabel('Score (1-10)')
 axes[0, 2].grid(True, alpha=0.3)
 
 
+# Plot 3: Political Orientation (Pie Chart) (First election round)
+
+political_counts = df['1. Primera vuelta'].value_counts()
+colors = ['#ff9999', '#66b3ff', "#108f10", '#ffcc99', '#ff99cc', '#76048d', "#40fff5", "#FFFB04FF"]
+wedges, texts, autotexts = axes[1, 0].pie(political_counts.values, 
+                                          labels=political_counts.index,
+                                          autopct='%1.1f%%',
+                                          colors=colors,
+                                          startangle=90)
+axes[1, 0].set_title('Political Orientation Distribution - First election round', fontweight='bold')
+
+# Plot 4: Political Orientation (Pie Chart) (Second election round)
+
+political_counts = df['2. Segunda vuelta'].value_counts()
+colors = ["#1430d1", "#ebfa17", "#108f10", '#ffcc99', '#ff99cc']
+wedges, texts, autotexts = axes[1, 1].pie(political_counts.values, 
+                                          labels=political_counts.index,
+                                          autopct='%1.1f%%',
+                                          colors=colors,
+                                          startangle=90)
+axes[1, 1].set_title('Political Orientation Distribution - Second election round', fontweight='bold')
+
+
 plt.show()
