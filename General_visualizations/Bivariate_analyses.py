@@ -13,12 +13,11 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
+
 df = pd.read_excel("Auswertung.xlsx")
 
 print(df.head())
 
-#Descriptive Statistic
-print("------Descriptive Statistic-------")
 
 numerical_vars = ['Edad', '3. Buen político', '5. Ideas libertarias', '9. Resolver los problemas económicos', '11. Resolver los problemas de seguridad interior',
 '12. Milei un político peligroso', '13. Corrupción', '14. Figura de autoridad fuerte', '16. Conocimientos económicos', '17. Perspectivas personales a futuro']
@@ -32,24 +31,4 @@ categorical_vars = ['Género', 'Lugar de nacimiento provincia', 'Lugar de reside
 
 # Bivariate Analyse
 
-def bivariate_analyse(df):
-    """Doing bivariate analyses"""
-    print("\n" + "="*50)
-    print("BIVARIATE ANALYSIS") 
-    print("="*50)
-    
-    numerical_vars = df.select_dtypes(include=[np.number]).columns
-    categorical_vars = df.select_dtypes(include=['object']).columns
-    
-    # Correlationsmatrix
-    if len(numerical_vars) > 1:
-        print("\nCorrelation between numerical variables:")
-        corr_matrix = df[numerical_vars].corr()
-        print(corr_matrix.round(3))
-        
-        plt.figure(figsize=(10, 8))
-        sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', center=0)
-        plt.title('correlation matrix')
-        plt.tight_layout()
-        plt.savefig('correlation.png', dpi=300, bbox_inches='tight')
-        plt.show()
+
