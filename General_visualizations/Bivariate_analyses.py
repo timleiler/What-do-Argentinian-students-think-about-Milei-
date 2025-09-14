@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
@@ -13,7 +14,7 @@ from scipy.stats import chi2_contingency, pearsonr, spearmanr, kendalltau
 import warnings
 warnings.filterwarnings('ignore')
 
-
+plt.ion()
 
 df = pd.read_excel("Auswertung.xlsx")
 
@@ -63,7 +64,9 @@ def analyze_numerical_vs_numerical(df, num_vars):
     plt.tight_layout()
     plt.savefig('correlation matrix.png', dpi=300, bbox_inches='tight')
     plt.show()
-    
+    input("Press Enter to continue...")
+
+
     # Identify strong correlations
     print("STRONG CORRELATIONS")
     strong_corr = []
@@ -108,5 +111,12 @@ def analyze_numerical_vs_numerical(df, num_vars):
         
         plt.suptitle('Scatter-Plots for strong correlations', fontsize=16)
         plt.tight_layout()
-        #plt.savefig('scatter_plots_strong_corr.png', dpi=300, bbox_inches='tight')
-        plt.show(block=True)
+        plt.savefig('scatter_plots_strong_corr.png', dpi=300, bbox_inches='tight')
+        plt.show()
+        input("Press Enter to continue...")
+
+    else:
+        print("Keine starken Korrelationen gefunden (|r| > 0.5)")
+
+if __name__ == "__main__":
+    analyze_numerical_vs_numerical(df, numerical_vars)
