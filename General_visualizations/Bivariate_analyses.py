@@ -1,9 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib
-matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-plt.ioff()
 import seaborn as sns
 import plotly.graph_objects as go
 import plotly.express as px
@@ -18,8 +16,6 @@ warnings.filterwarnings('ignore')
 
 
 df = pd.read_excel("Auswertung.xlsx")
-
-print(df.head())
 
 
 numerical_vars = ['Edad', '3. Buen político', '5. Ideas libertarias', '9. Resolver los problemas económicos', '11. Resolver los problemas de seguridad interior',
@@ -44,7 +40,7 @@ def analyze_numerical_vs_numerical(df, num_vars):
         print("At least 2 numeric variables required")
         return
     
-    # Correlation matrix
+    # Correlation matrix / Pearson correlation
     df_num = df[num_vars].select_dtypes(include=[np.number])
     correlation_matrix = df_num.corr()
     
@@ -69,7 +65,7 @@ def analyze_numerical_vs_numerical(df, num_vars):
     plt.show()
     
     # Identify strong correlations
-    print("\n🔍 STRONG CORRELATIONS (|r| > 0.5):")
+    print("STRONG CORRELATIONS")
     strong_corr = []
     for i in range(len(correlation_matrix.columns)):
         for j in range(i+1, len(correlation_matrix.columns)):
